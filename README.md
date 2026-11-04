@@ -330,7 +330,7 @@ Para comprobar si el puerto está disponible desde el Mac:
 nc -vz IP_LAN_DEL_COMPUTADOR 1883
 ```
 
-La IP `10.51.43.236` utilizada durante las pruebas corresponde al Mac en
+La IP `10.51.XX.XXX` utilizada durante las pruebas corresponde al Mac en
 aquella sesión. Debe verificarse nuevamente en cada entorno.
 
 ## 8. Configuración del firmware
@@ -370,12 +370,10 @@ No publicar credenciales reales en el repositorio.
   Componente     GPIO propuesto
   ------------ ----------------
   DHT11                       5
-  LED 1                      18
-  LED 2                      19
+  LED 1                      40
+  LED 2                      36
 
-Los GPIO deben verificarse según el modelo específico de ESP32. En
-particular, si se utiliza una ESP32-C5 Mini u otra variante, consultar
-su pinout y confirmar que los pines estén expuestos y disponibles.
+Los GPIO deben verificarse según el modelo específico de ESP32. 
 
 ### 8.4 Cargar y verificar
 
@@ -613,35 +611,6 @@ IoT para estudiar:
 -   Visualización y monitoreo de variables.
 -   Control remoto de dispositivos.
 
-### Secuencia sugerida para una clase de 60 minutos
-
-  -----------------------------------------------------------------------
-  Tiempo                  Actividad               Evidencia de
-                                                  aprendizaje
-  ----------------------- ----------------------- -----------------------
-  0--5 min                Presentación del caso y Identifica sensor,
-                          arquitectura.           nodo, broker y
-                                                  dashboard.
-
-  5--15 min               DHT11 y lectura ESP32.  Observa mediciones en
-                                                  Serial.
-
-  15--25 min              Wi-Fi y publicación     Reconoce tópicos y
-                          MQTT.                   payloads.
-
-  25--35 min              Node-RED y dashboard.   Visualiza indicadores y
-                                                  gráficas.
-
-  35--48 min              Control bidireccional   Envía comandos ON/OFF
-                          de LED.                 desde el dashboard.
-
-  48--55 min              Desconexión y           Interpreta un fallo y
-                          diagnóstico.            plantea una solución.
-
-  55--60 min              Cierre y socialización. Explica el recorrido
-                                                  del dato y del comando.
-  -----------------------------------------------------------------------
-
 ## 14. Referencias técnicas
 
 -   [Espressif
@@ -660,6 +629,6 @@ IoT para estudiar:
 
 ------------------------------------------------------------------------
 
-**Proyecto académico de Internet de las Cosas (IoT)**
+**Clase espejo de Internet de las Cosas (IoT)**
 
 ESP32 · DHT11 · MQTT · Mosquitto · Docker · Node-RED
