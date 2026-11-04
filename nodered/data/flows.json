@@ -1,0 +1,546 @@
+[
+    {
+        "id": "76b655b20bb0843f",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b100000000000001",
+        "type": "tab",
+        "label": "IoT - ESP32 DHT11",
+        "disabled": false,
+        "info": "Dashboard de monitoreo ambiental mediante MQTT"
+    },
+    {
+        "id": "282bd10b088fe323",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mosquitto",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "cd2b7b17640c1f5b",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "421b206a53746bcb",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "344850cee8c6e219",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "cd2b7b17640c1f5b",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "421b206a53746bcb",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "bfb0c1f5ec918bda",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "344850cee8c6e219",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "b200000000000001",
+        "type": "mqtt-broker",
+        "name": "Mosquitto Docker",
+        "broker": "mosquitto",
+        "port": "1883",
+        "clientid": "nodered-dashboard",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "b400000000000001",
+        "type": "ui-theme",
+        "name": "Tema IoT",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#1565c0",
+            "bgPage": "#f4f6f8",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9e0e7"
+        },
+        "sizes": {
+            "density": "comfortable",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "b500000000000001",
+        "type": "ui-page",
+        "name": "Monitoreo ambiental",
+        "ui": "cd2b7b17640c1f5b",
+        "path": "/",
+        "icon": "dashboard",
+        "layout": "grid",
+        "theme": "b400000000000001",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Desktop",
+                "px": "768",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": ""
+    },
+    {
+        "id": "b600000000000001",
+        "type": "ui-group",
+        "name": "Variables ambientales",
+        "page": "b500000000000001",
+        "width": "6",
+        "height": "4",
+        "order": 1,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "b600000000000002",
+        "type": "ui-group",
+        "name": "Histórico de mediciones",
+        "page": "b500000000000001",
+        "width": "12",
+        "height": "4",
+        "order": 2,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "b700000000000001",
+        "type": "mqtt in",
+        "z": "b100000000000001",
+        "name": "Temperatura MQTT",
+        "topic": "clase/esp32/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "b200000000000001",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "b800000000000001",
+                "b900000000000001",
+                "ba00000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "b700000000000002",
+        "type": "mqtt in",
+        "z": "b100000000000001",
+        "name": "Humedad MQTT",
+        "topic": "clase/esp32/humedad",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "b200000000000001",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "b800000000000002",
+                "b900000000000002",
+                "ba00000000000002"
+            ]
+        ]
+    },
+    {
+        "id": "b800000000000001",
+        "type": "function",
+        "z": "b100000000000001",
+        "name": "Convertir temperatura",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "bb00000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "b800000000000002",
+        "type": "function",
+        "z": "b100000000000001",
+        "name": "Convertir humedad",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "bb00000000000002"
+            ]
+        ]
+    },
+    {
+        "id": "bb00000000000001",
+        "type": "ui-gauge",
+        "z": "b100000000000001",
+        "name": "Indicador temperatura",
+        "group": "b600000000000001",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperatura",
+        "alwaysShowTitle": true,
+        "units": "°C",
+        "icon": "thermometer",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#2196f3",
+                "label": ""
+            },
+            {
+                "from": "25",
+                "color": "#ff9800",
+                "label": ""
+            },
+            {
+                "from": "35",
+                "color": "#f44336",
+                "label": ""
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "className": "",
+        "x": 690,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb00000000000002",
+        "type": "ui-gauge",
+        "z": "b100000000000001",
+        "name": "Indicador humedad",
+        "group": "b600000000000001",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humedad",
+        "alwaysShowTitle": true,
+        "units": "%",
+        "icon": "droplets",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff9800",
+                "label": ""
+            },
+            {
+                "from": "40",
+                "color": "#2196f3",
+                "label": ""
+            },
+            {
+                "from": "70",
+                "color": "#4caf50",
+                "label": ""
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "className": "",
+        "x": 690,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b900000000000001",
+        "type": "debug",
+        "z": "b100000000000001",
+        "name": "Datos temperatura",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 370,
+        "wires": []
+    },
+    {
+        "id": "b900000000000002",
+        "type": "debug",
+        "z": "b100000000000001",
+        "name": "Datos humedad",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 610,
+        "wires": []
+    },
+    {
+        "id": "ba00000000000001",
+        "type": "ui-chart",
+        "z": "b100000000000001",
+        "group": "b600000000000002",
+        "name": "Histórico temperatura",
+        "label": "Temperatura",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "Tiempo",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "yAxisLabel": "Temperatura (°C)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "50",
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 3,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#1565c0"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "width": "12",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 700,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba00000000000002",
+        "type": "ui-chart",
+        "z": "b100000000000001",
+        "group": "b600000000000002",
+        "name": "Histórico humedad",
+        "label": "Humedad",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "Tiempo",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "yAxisLabel": "Humedad (%)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "100",
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 3,
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#00897b"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "width": "12",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 690,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    }
+]

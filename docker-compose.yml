@@ -1,5 +1,6 @@
 
 services:
+
   mosquitto:
     image: eclipse-mosquitto:2
     container_name: mosquitto
@@ -12,3 +13,17 @@ services:
       - ./mosquitto/config:/mosquitto/config
       - ./mosquitto/data:/mosquitto/data
       - ./mosquitto/log:/mosquitto/log
+
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered
+    restart: unless-stopped
+
+    ports:
+      - "1880:1880"
+
+    volumes:
+      - ./nodered/data:/data
+
+    depends_on:
+      - mosquitto
