@@ -244,8 +244,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
-        "y": 120,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "b800000000000001",
@@ -267,8 +267,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 180,
-        "y": 240,
+        "x": 170,
+        "y": 560,
         "wires": [
             [
                 "b800000000000002",
@@ -289,8 +289,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 120,
+        "x": 420,
+        "y": 320,
         "wires": [
             [
                 "bb00000000000001"
@@ -309,8 +309,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 420,
-        "y": 240,
+        "x": 410,
+        "y": 560,
         "wires": [
             [
                 "bb00000000000002"
@@ -359,8 +359,8 @@
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "className": "",
-        "x": 700,
-        "y": 120,
+        "x": 690,
+        "y": 320,
         "wires": [
             []
         ]
@@ -407,8 +407,8 @@
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "className": "",
-        "x": 700,
-        "y": 240,
+        "x": 690,
+        "y": 560,
         "wires": [
             []
         ]
@@ -426,8 +426,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 170,
+        "x": 420,
+        "y": 370,
         "wires": []
     },
     {
@@ -443,8 +443,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
-        "y": 290,
+        "x": 410,
+        "y": 610,
         "wires": []
     },
     {
@@ -489,8 +489,8 @@
         "height": "4",
         "className": "",
         "interpolation": "linear",
-        "x": 710,
-        "y": 120,
+        "x": 700,
+        "y": 180,
         "wires": [
             []
         ]
@@ -537,8 +537,8 @@
         "height": "4",
         "className": "",
         "interpolation": "linear",
-        "x": 710,
-        "y": 240,
+        "x": 690,
+        "y": 440,
         "wires": [
             []
         ]

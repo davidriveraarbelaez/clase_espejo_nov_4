@@ -232,6 +232,17 @@
         "className": ""
     },
     {
+        "id": "c100000000000001",
+        "type": "ui-group",
+        "name": "Control de actuadores",
+        "page": "b500000000000001",
+        "width": "6",
+        "height": "3",
+        "order": 3,
+        "showTitle": true,
+        "className": ""
+    },
+    {
         "id": "b700000000000001",
         "type": "mqtt in",
         "z": "b100000000000001",
@@ -542,5 +553,139 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "c200000000000001",
+        "type": "ui-button",
+        "z": "b100000000000001",
+        "group": "c100000000000001",
+        "name": "Encender LED 1",
+        "label": "Encender LED 1",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "#ffffff",
+        "bgcolor": "#16a34a",
+        "className": "",
+        "icon": "lightbulb",
+        "iconPosition": "left",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "clase/esp32/led1",
+        "topicType": "str",
+        "x": 400,
+        "y": 680,
+        "wires": [
+            [
+                "c300000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "c200000000000002",
+        "type": "ui-button",
+        "z": "b100000000000001",
+        "group": "c100000000000001",
+        "name": "Apagar LED 1",
+        "label": "Apagar LED 1",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "#ffffff",
+        "bgcolor": "#dc2626",
+        "className": "",
+        "icon": "lightbulb",
+        "iconPosition": "left",
+        "payload": "OFF",
+        "payloadType": "str",
+        "topic": "clase/esp32/led1",
+        "topicType": "str",
+        "x": 400,
+        "y": 740,
+        "wires": [
+            [
+                "c300000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "c200000000000003",
+        "type": "ui-button",
+        "z": "b100000000000001",
+        "group": "c100000000000001",
+        "name": "Encender LED 2",
+        "label": "Encender LED 2",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "#ffffff",
+        "bgcolor": "#16a34a",
+        "className": "",
+        "icon": "lightbulb",
+        "iconPosition": "left",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "clase/esp32/led2",
+        "topicType": "str",
+        "x": 400,
+        "y": 800,
+        "wires": [
+            [
+                "c300000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "c200000000000004",
+        "type": "ui-button",
+        "z": "b100000000000001",
+        "group": "c100000000000001",
+        "name": "Apagar LED 2",
+        "label": "Apagar LED 2",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "#ffffff",
+        "bgcolor": "#dc2626",
+        "className": "",
+        "icon": "lightbulb",
+        "iconPosition": "left",
+        "payload": "OFF",
+        "payloadType": "str",
+        "topic": "clase/esp32/led2",
+        "topicType": "str",
+        "x": 400,
+        "y": 860,
+        "wires": [
+            [
+                "c300000000000001"
+            ]
+        ]
+    },
+    {
+        "id": "c300000000000001",
+        "type": "mqtt out",
+        "z": "b100000000000001",
+        "name": "Enviar comandos a ESP32",
+        "topic": "",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "b200000000000001",
+        "x": 700,
+        "y": 770,
+        "wires": []
     }
 ]

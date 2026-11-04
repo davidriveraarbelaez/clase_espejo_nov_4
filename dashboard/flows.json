@@ -1,444 +1,148 @@
+
 [
-    {
-        "id": "b100000000000001",
-        "type": "tab",
-        "label": "IoT - ESP32 DHT11",
-        "disabled": false,
-        "info": "Dashboard de monitoreo ambiental mediante MQTT"
-    },
-    {
-        "id": "b700000000000001",
-        "type": "mqtt in",
-        "z": "b100000000000001",
-        "name": "Temperatura MQTT",
-        "topic": "clase/esp32/temperatura",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "b200000000000001",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 320,
-        "wires": [
-            [
-                "b800000000000001",
-                "b900000000000001",
-                "ba00000000000001"
-            ]
-        ]
-    },
-    {
-        "id": "b700000000000002",
-        "type": "mqtt in",
-        "z": "b100000000000001",
-        "name": "Humedad MQTT",
-        "topic": "clase/esp32/humedad",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "b200000000000001",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 170,
-        "y": 560,
-        "wires": [
-            [
-                "b800000000000002",
-                "b900000000000002",
-                "ba00000000000002"
-            ]
-        ]
-    },
-    {
-        "id": "b800000000000001",
-        "type": "function",
-        "z": "b100000000000001",
-        "name": "Convertir temperatura",
-        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 320,
-        "wires": [
-            [
-                "bb00000000000001"
-            ]
-        ]
-    },
-    {
-        "id": "b800000000000002",
-        "type": "function",
-        "z": "b100000000000001",
-        "name": "Convertir humedad",
-        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 560,
-        "wires": [
-            [
-                "bb00000000000002"
-            ]
-        ]
-    },
-    {
-        "id": "bb00000000000001",
-        "type": "ui-gauge",
-        "z": "b100000000000001",
-        "name": "Indicador temperatura",
-        "group": "b600000000000001",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": "3",
-        "height": "3",
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Temperatura",
-        "alwaysShowTitle": true,
-        "units": "°C",
-        "icon": "thermometer",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#2196f3",
-                "label": ""
-            },
-            {
-                "from": "25",
-                "color": "#ff9800",
-                "label": ""
-            },
-            {
-                "from": "35",
-                "color": "#f44336",
-                "label": ""
-            }
-        ],
-        "min": 0,
-        "max": "50",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "className": "",
-        "x": 690,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bb00000000000002",
-        "type": "ui-gauge",
-        "z": "b100000000000001",
-        "name": "Indicador humedad",
-        "group": "b600000000000001",
-        "order": 2,
-        "value": "payload",
-        "valueType": "msg",
-        "width": "3",
-        "height": "3",
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Humedad",
-        "alwaysShowTitle": true,
-        "units": "%",
-        "icon": "droplets",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#ff9800",
-                "label": ""
-            },
-            {
-                "from": "40",
-                "color": "#2196f3",
-                "label": ""
-            },
-            {
-                "from": "70",
-                "color": "#4caf50",
-                "label": ""
-            }
-        ],
-        "min": 0,
-        "max": "100",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "className": "",
-        "x": 690,
-        "y": 560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b900000000000001",
-        "type": "debug",
-        "z": "b100000000000001",
-        "name": "Datos temperatura",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 420,
-        "y": 370,
-        "wires": []
-    },
-    {
-        "id": "b900000000000002",
-        "type": "debug",
-        "z": "b100000000000001",
-        "name": "Datos humedad",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 410,
-        "y": 610,
-        "wires": []
-    },
-    {
-        "id": "ba00000000000001",
-        "type": "ui-chart",
-        "z": "b100000000000001",
-        "group": "b600000000000002",
-        "name": "Histórico temperatura",
-        "label": "Temperatura",
-        "order": 1,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "Tiempo",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "yAxisLabel": "Temperatura (°C)",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "0",
-        "ymax": "50",
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "circle",
-        "pointRadius": 3,
-        "showLegend": false,
-        "removeOlder": 1,
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#1565c0"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "width": "12",
-        "height": "4",
-        "className": "",
-        "interpolation": "linear",
-        "x": 700,
-        "y": 180,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ba00000000000002",
-        "type": "ui-chart",
-        "z": "b100000000000001",
-        "group": "b600000000000002",
-        "name": "Histórico humedad",
-        "label": "Humedad",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "Tiempo",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "yAxisLabel": "Humedad (%)",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "0",
-        "ymax": "100",
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "circle",
-        "pointRadius": 3,
-        "showLegend": false,
-        "removeOlder": 1,
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#00897b"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "width": "12",
-        "height": "4",
-        "className": "",
-        "interpolation": "linear",
-        "x": 690,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b200000000000001",
-        "type": "mqtt-broker",
-        "name": "Mosquitto Docker",
-        "broker": "mosquitto",
-        "port": "1883",
-        "clientid": "nodered-dashboard",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "b600000000000001",
-        "type": "ui-group",
-        "name": "Variables ambientales",
-        "page": "b500000000000001",
-        "width": "6",
-        "height": "4",
-        "order": 1,
-        "showTitle": true,
-        "className": ""
-    },
-    {
-        "id": "b600000000000002",
-        "type": "ui-group",
-        "name": "Histórico de mediciones",
-        "page": "b500000000000001",
-        "width": "12",
-        "height": "4",
-        "order": 2,
-        "showTitle": true,
-        "className": ""
-    },
-    {
-        "id": "b500000000000001",
-        "type": "ui-page",
-        "name": "Monitoreo ambiental",
-        "ui": "cd2b7b17640c1f5b",
-        "path": "/",
-        "icon": "dashboard",
-        "layout": "grid",
-        "theme": "b400000000000001",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": "0",
-                "cols": "3"
-            },
-            {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "6"
-            },
-            {
-                "name": "Desktop",
-                "px": "768",
-                "cols": "12"
-            }
-        ],
-        "order": 2,
-        "className": ""
-    },
-    {
-        "id": "cd2b7b17640c1f5b",
-        "type": "ui-base",
-        "name": "My Dashboard",
-        "path": "/dashboard",
-        "appIcon": "",
-        "includeClientData": true,
-        "acceptsClientConfig": [
-            "ui-notification",
-            "ui-control"
-        ],
-        "showPathInSidebar": false,
-        "headerContent": "page",
-        "navigationStyle": "default",
-        "titleBarStyle": "default",
-        "showReconnectNotification": true,
-        "notificationDisplayTime": 1,
-        "showDisconnectNotification": true,
-        "allowInstall": false
-    },
-    {
-        "id": "b400000000000001",
-        "type": "ui-theme",
-        "name": "Tema IoT",
-        "colors": {
-            "surface": "#ffffff",
-            "primary": "#1565c0",
-            "bgPage": "#f4f6f8",
-            "groupBg": "#ffffff",
-            "groupOutline": "#d9e0e7"
-        },
-        "sizes": {
-            "density": "comfortable",
-            "pagePadding": "12px",
-            "groupGap": "12px",
-            "groupBorderRadius": "8px",
-            "widgetGap": "12px"
-        }
-    },
-    {
-        "id": "a40f2632bab4e25d",
-        "type": "global-config",
-        "env": [],
-        "modules": {
-            "@flowfuse/node-red-dashboard": "1.34.1"
-        }
-    }
+  {
+    "id": "c100000000000001",
+    "type": "ui-group",
+    "name": "Control de actuadores",
+    "page": "b500000000000001",
+    "width": "6",
+    "height": "3",
+    "order": 3,
+    "showTitle": true,
+    "className": ""
+  },
+  {
+    "id": "c200000000000001",
+    "type": "ui-button",
+    "z": "b100000000000001",
+    "group": "c100000000000001",
+    "name": "Encender LED 1",
+    "label": "Encender LED 1",
+    "order": 1,
+    "width": "3",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "#ffffff",
+    "bgcolor": "#16a34a",
+    "className": "",
+    "icon": "lightbulb",
+    "iconPosition": "left",
+    "payload": "ON",
+    "payloadType": "str",
+    "topic": "clase/esp32/led1",
+    "topicType": "str",
+    "x": 180,
+    "y": 400,
+    "wires": [
+      [
+        "c300000000000001"
+      ]
+    ]
+  },
+  {
+    "id": "c200000000000002",
+    "type": "ui-button",
+    "z": "b100000000000001",
+    "group": "c100000000000001",
+    "name": "Apagar LED 1",
+    "label": "Apagar LED 1",
+    "order": 2,
+    "width": "3",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "#ffffff",
+    "bgcolor": "#dc2626",
+    "className": "",
+    "icon": "lightbulb",
+    "iconPosition": "left",
+    "payload": "OFF",
+    "payloadType": "str",
+    "topic": "clase/esp32/led1",
+    "topicType": "str",
+    "x": 180,
+    "y": 460,
+    "wires": [
+      [
+        "c300000000000001"
+      ]
+    ]
+  },
+  {
+    "id": "c200000000000003",
+    "type": "ui-button",
+    "z": "b100000000000001",
+    "group": "c100000000000001",
+    "name": "Encender LED 2",
+    "label": "Encender LED 2",
+    "order": 3,
+    "width": "3",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "#ffffff",
+    "bgcolor": "#16a34a",
+    "className": "",
+    "icon": "lightbulb",
+    "iconPosition": "left",
+    "payload": "ON",
+    "payloadType": "str",
+    "topic": "clase/esp32/led2",
+    "topicType": "str",
+    "x": 180,
+    "y": 520,
+    "wires": [
+      [
+        "c300000000000001"
+      ]
+    ]
+  },
+  {
+    "id": "c200000000000004",
+    "type": "ui-button",
+    "z": "b100000000000001",
+    "group": "c100000000000001",
+    "name": "Apagar LED 2",
+    "label": "Apagar LED 2",
+    "order": 4,
+    "width": "3",
+    "height": "1",
+    "emulateClick": false,
+    "tooltip": "",
+    "color": "#ffffff",
+    "bgcolor": "#dc2626",
+    "className": "",
+    "icon": "lightbulb",
+    "iconPosition": "left",
+    "payload": "OFF",
+    "payloadType": "str",
+    "topic": "clase/esp32/led2",
+    "topicType": "str",
+    "x": 180,
+    "y": 580,
+    "wires": [
+      [
+        "c300000000000001"
+      ]
+    ]
+  },
+  {
+    "id": "c300000000000001",
+    "type": "mqtt out",
+    "z": "b100000000000001",
+    "name": "Enviar comandos a ESP32",
+    "topic": "",
+    "qos": "",
+    "retain": "false",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "b200000000000001",
+    "x": 480,
+    "y": 490,
+    "wires": []
+  }
 ]
